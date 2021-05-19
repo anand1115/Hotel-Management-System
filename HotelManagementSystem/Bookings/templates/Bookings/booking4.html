@@ -1,0 +1,240 @@
+{% extends 'Bookings/BookingBase.html' %}
+{% load static %}
+{% block title %}
+Basic Details
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'Bookings/css/booking4.css'%}" >
+{% endblock %}
+{% block main %}
+<div class="flex-class">
+    <section class="container-sidebar">
+        <div class="sidebar">
+           <div class="section-book-1"> 
+                <div class="room-heading">
+                    <p>PAYMENT DETAILS</p>
+                </div>  
+                <div class="enter-info">  
+                    <div class="check-info">
+                        <div class="check-row">
+                        <i class="far fa-check-circle"></i><span>Check-In</span>
+                        </div>
+                        <div class="check-row-2">
+                        <span>{{data.CheckInDate}}</span>
+                        </div>  
+                    </div> 
+                    <div class="check-info">
+                        <div class="check-row">
+                        <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
+                        </div>
+                        <div class="check-row-2">
+                        <span>{{data.CheckOutDate}}</span>
+                        </div>
+                    </div>  
+                    <div class="check-info">
+                        <div class="check-row">
+                        <i class="fas fa-bed"></i><span>Number Of Rooms</span>
+                        </div>
+                        <div class="check-row-2">
+                        <span>{{data.RoomCount}}</span>
+                        </div> 
+                    </div>  
+                    <div class="check-info">
+                        <div class="check-row">
+                        <i class="fas fa-users"></i><span>Number Of Guests</span>
+                        </div>
+                        <div class="check-row-2">    
+                        <span>{{data.GuestCount}}</span>
+                        </div> 
+                    </div>  
+                </div> 
+                <div class="billing-details-row">
+                    <div class="room-bill-heading">
+                        <p>Room Details</p>
+                    </div> 
+                    <div class="room-card-row">   
+                        <div class="room-bill-card">
+                            <p>Room-1</p>
+                            <div class="room-1-details">  
+                                <h6>Luxury Room <span>X 1</span> </h6>
+                                <p id="rate-cost"><i class="fas fa-rupee-sign"></i>18500</p>
+                            </div>                                
+                        </div> 
+                        <div class="room-bill-card">  
+                            <p>Room-2</p>
+                            <div class="room-1-details">  
+                                <h6>Delux Room <span>X 1</span> </h6>
+                                <p id="rate-cost"><i class="fas fa-rupee-sign"></i>21500</p>
+                            </div>                                
+                        </div> 
+                    </div>        
+                </div>  
+                    <div class="amount-details">
+                        <div class="flex-total">
+                           <h6>Total</h6>
+                        </div> 
+                        <div class="flex-total-amount">
+                            <p><i class="fas fa-rupee-sign"></i>40000</p>
+                        </div>       
+                    </div>      
+                <div class="billing">
+                   <div class="bill-details">
+                     <p></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="room-select-card"> 
+        <div class="personal">
+            <div class="user-navbar">
+                <div class="options">
+                    <div class="option-number" id="option-1">
+                        <div class="option-padding">
+                        <span> 1</span>
+                        </div>  
+                    </div>
+                    <div class="option-row option-color padding-option-1">    
+                        <span>Choose Date & Personal Information</span>   
+                    </div>    
+                </div>    
+                <div class="options">
+                    <div class="option-number" id="option-2">
+                        <div class="option-padding">
+                        <span> 2 </span>
+                        </div> 
+                    </div>
+                    <div class="option-row option-color">    
+                        <span>Choose Rooms</span>   
+                    </div>    
+                </div>    
+                <div class="options">
+                    <div class="option-number" id="option-3">
+                    <div class="option-padding"> 
+                        <span> 3 </span>
+                    </div>
+                    </div>
+                    <div class="option-row option-color">    
+                        <span>Confirmation</span>   
+                    </div>    
+                </div>    
+                <div class="options">
+                    <div class="option-number" id="option-4">
+                    <div class="option-padding"> 
+                        <span> 4 </span>
+                    </div>
+                    </div>
+                    <div class="option-row option">    
+                        <span>Payment Method </span>   
+                    </div>    
+                </div>    
+            </div>  
+        </div>
+        <div class="payment-option-heading">
+            <p>Payment Options</p>
+        </div>
+        <form>
+            <div class="input-select-method">
+                <div class="input-options">
+                    <input type="radio" name="radio-box" class="check-option" onclick="details(0)">
+                    <span class="payment-icons">
+                        <span>Credit Card</span>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fa fa-credit-card"></i>
+                        <i class="fa fa-cc-amex"></i>
+                    </span>
+                </div> 
+                <div class="card-info" id="credit-card-info" style="display: none ;">
+                   <div class="field-1">
+                         <label>Name On Card</label>
+                         <div class="input-field-name">
+                           <input type="text" placeholder="Name On Card">
+                         </div>   
+                    </div>
+                   <div class="field-1">
+                        <label>Card Number</label>
+                        <div class="input-field-name">
+                           <input type="text" placeholder="Card Number"> 
+                        </div>
+                   </div>
+                   <div class="field-1"> 
+                        <label>CVV</label> 
+                        <div class="input-field-name">
+                          <input type="text" placeholder="CVV">
+                        </div>  
+                    </div>
+                    <div class="field-1">
+                        <label>Expiry Date</label>
+                        <div class="input-field-name">
+                          <input type="date" placeholder="Expiry">
+                        </div>  
+                    </div>
+                </div>    
+            </div>     
+            <div class="input-select-method">
+                <div class="input-options">
+                    <input type="radio" name="radio-box" class="check-option" onclick="details(1)">
+                    <span class="payment-icons">
+                        <span>Debit Card</span>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fa fa-credit-card"></i>
+                        <i class="fa fa-cc-amex"></i>
+                    </span>
+                </div> 
+                <div class="card-info" id="debit-card-info" style="display: none ;">
+                    <div class="field-1">
+                          <label>Name On Card</label>
+                          <div class="input-field-name">
+                            <input type="text" placeholder="Name On Card">
+                          </div>   
+                     </div>
+                    <div class="field-1">
+                         <label>Card Number</label>
+                         <div class="input-field-name">
+                            <input type="text" placeholder="Card Number"> 
+                         </div>
+                    </div>
+                    <div class="field-1"> 
+                         <label>CVV</label> 
+                         <div class="input-field-name">
+                           <input type="text" placeholder="CVV">
+                         </div>  
+                     </div>
+                     <div class="field-1">
+                         <label>Expiry Date</label>
+                         <div class="input-field-name">
+                           <input type="date" placeholder="Expiry">
+                         </div>  
+                     </div>
+                 </div>     
+            </div>     
+            <div class="input-select-method">
+                <div class="input-options">
+                    <input type="radio" name="radio-box" class="check-option" onclick="details(2)">
+                    <span class="payment-icons paytm">
+                        <span>Paytm</span>
+                        <i class="fas fa-wallet"></i>
+                    </span>
+                </div> 
+            </div>     
+            <div class="input-select-method">
+                <div class="input-options">
+                    <input type="radio" name="radio-box" class="check-option">
+                    <span class="payment-icons">
+                        <span>Pay On Arrival</span>
+                    </span>
+                </div> 
+            </div>
+            <div class="page-btn">  
+                <button class="prev-btn">BACK</button>
+                <button class="submit-btn" type="submit">PAY</button>
+            </div>           
+        </form>     
+    </section>    
+</div>                  
+</body>
+<script src="{% static '/home/js/booking-4.js' %}"> </script>
+</html>
+{% endblock %}

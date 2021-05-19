@@ -1,0 +1,189 @@
+{% extends 'Bookings/BookingBase.html' %}
+{% load static %}
+{% block title %}
+Basic Details
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'Bookings/css/booking1.css'%}" >
+{% endblock %}
+{% block main %}
+<!-- </header>     -->
+<form action="#"  method="POST" onsubmit="return validation()">
+    {% csrf_token %}
+    <section class="container-sidebar">
+        <div class="sidebar">
+        <h2>Your Reservation's</h2>
+        <p>Your Stay Dates</p>
+        <div class="check">    
+        <i class="far fa-check-circle"></i><span>Check-In</span>
+        </div>
+        <div class="input-content">
+            {{form.CheckInDate}}
+            {{form.CheckInTime}}
+        </div>
+        <div class="check">    
+            <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
+            </div>
+        <div class="input-content">
+            {{form.CheckOutDate}}
+            {{form.CheckOutTime}}
+        </div>
+        <p id="rooms-guest">Rooms & Guests</p>
+        <div class="guest-info">
+                <i class="fas fa-bed"></i>
+                <label>Number Of Rooms </label>
+                {{form.RoomCount}}
+                <span class="tooltip" id="user-rooms" style="visibility: hidden;">
+                    <i class="fas fa-exclamation"></i>
+                    <span class="tooltiptext">Enter a valid number</span>  
+                </span>
+        </div>
+        <div class="guest-info">
+            <i class="fas fa-users"></i>
+            <label>Number Of Guests </label>
+            {{form.GuestCount}}
+            <span class="tooltip" id="user-guests" style="visibility: hidden;">
+                <i class="fas fa-exclamation"></i>
+                <span class="tooltiptext">Enter a valid number</span>  
+            </span>     
+        </div>
+        <div class="guest" id="adult">
+            <i class="fas fa-user"></i>
+            <label>Adults </label>
+            {{form.AdultCount}}
+            <span class="tooltip" id="user-adults" style="visibility: hidden;">
+                <i class="fas fa-exclamation"></i>
+                <span class="tooltiptext">Enter a valid number</span>  
+            </span>
+        </div>
+        <div class="guest">
+            <i class="fas fa-child"></i>
+            <label>Children </label>
+            {{form.ChildCount}}
+            <span class="tooltip" id="user-children" style="visibility: hidden;">
+                <i class="fas fa-exclamation"></i>
+                <span class="tooltiptext">Enter a valid number</span>  
+            </span>
+        </div>
+        </div>    
+        <div class="personal">
+            <div class="user-navbar">
+                <div class="options">
+                    <div class="option-number" id="option-1">
+                        <div class="option-padding">
+                        <span> 1</span>
+                        </div>  
+                    </div>
+                    <div class="option-row option">    
+                        <span>Choose Date & Personal Information</span>   
+                    </div>    
+                </div>    
+                <div class="options">
+                    <div class="option-number" id="option-2">
+                        <div class="option-padding">
+                        <span> 2 </span>
+                        </div> 
+                    </div>
+                    <div class="option-row option-color">    
+                        <span>Choose Rooms</span>   
+                    </div>    
+                </div>    
+                <div class="options">
+                    <div class="option-number" id="option-3">
+                    <div class="option-padding"> 
+                        <span> 3 </span>
+                    </div>
+                    </div>
+                    <div class="option-row option-color">    
+                        <span>Confirmation</span>   
+                    </div>    
+                </div>    
+                <div class="options">
+                    <div class="option-number" id="option-4">
+                    <div class="option-padding"> 
+                        <span> 4 </span>
+                    </div>
+                    </div>
+                    <div class="option-row option-color">    
+                        <span>Payment Method </span>   
+                    </div>    
+                </div>    
+            </div>       
+            <div class="personal-form">
+                {% if error %}
+                <p style="color: red;">{{error}}</p>
+                {% endif %}
+                <!-- <p>Returning Customer ? <a href="#"> Click Here To Login </a> "OR" New To Our Website ! <a href="#">Click Here To SignUp .</a></p>       -->
+                <div class="form-input-country">
+                    <p>Country</p>
+                   {{form.Country}}
+                </div>
+                <div class="input-name">
+                    <div class="name-field">
+                        <p>First Name </p>
+                        {{form.FirstName}}
+                        <span class="tooltip" id="user-name-first" style="visibility: hidden;">
+                            <i class="fas fa-exclamation"></i>
+                            <span class="tooltiptext">Enter Valid First Name</span>  
+                        </span>
+                        <h6 id="user-first"></h6>
+                    </div>
+                    <div class="name-field">
+                        <p>Last Name</p>
+                        {{form.LastName}}
+                        <span class="tooltip" id="user-name-last"  style="visibility: hidden;">
+                            <i class="fas fa-exclamation"></i>
+                            <span class="tooltiptext">Enter Valid Last Name</span>  
+                        </span>
+                        <h6 id="user-last"></h6>
+                    </div>
+                    <div class="name-field">
+                        <p>Phone Number</p>
+                        {{form.Phonenumber}}
+                        <span class="tooltip" id="user-name-phone" style="visibility: hidden;">
+                            <i class="fas fa-exclamation"></i>
+                            <span class="tooltiptext">Enter Valid Phone Number</span>  
+                        </span>
+                        <h6 id="user-phone"></h6>
+                    </div>      
+                </div>    
+                <div class="input-name">
+                    <div class="name-field">
+                        <p>Town/City</p>
+                        {{form.City}}
+                        <span class="tooltip" id="user-name-town" style="visibility: hidden;">
+                            <i class="fas fa-exclamation"></i>
+                            <span class="tooltiptext">Enter Valid Town</span>  
+                        </span>
+                        <h6 id="user-town"></h6>
+                    </div>
+                    <div class="name-field">
+                        <p>Gender</p>
+                        {{form.Gender}} 
+                    </div>
+                    <div class="name-field">
+                        <p>Email Address</p>
+                        {{form.Email}}
+                        <span class="tooltip" id="user-name-email" style="visibility: hidden;">
+                            <i class="fas fa-exclamation"></i>
+                            <span class="tooltiptext">Enter Valid Email-Address</span>  
+                        </span>
+                        <h6 id="user-email"></h6>
+                    </div>      
+                </div>   
+                <div class="id-proof">
+                    <p>Identification Proof</p>
+                    {{form.IdentificationProof}}
+                </div>           
+           </div>
+           <div class="form-submit">
+              <input class="btn-submit" type="submit"/> 
+           </div>
+        </div>  
+    </section> 
+     
+</form> 
+<script src="{% static 'Bookings/js/booking1.js' %}"> </script>    
+</body>
+</html>
+{% endblock %}

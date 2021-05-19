@@ -11,6 +11,7 @@ class ContactView(View):
     def get(self,request):
         context={}
         return render(request,"Home/Contact.html",context)
+
 class AboutView(View):
     def get(self,request):
         context={}
