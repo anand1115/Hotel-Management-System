@@ -1,0 +1,267 @@
+{% extends 'Home/Base.html' %}
+{% load static %}
+{% block title %}
+Fouses Hotels
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'Home/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'Home/css/contact.css' %}">
+{% endblock %}
+{% block main %}
+<div class="content-header"> 
+  <h1>Awaken To Different World </h1> 
+ <p>Your Historic Dwelling in The Heart of City.</p>
+  <div class="booking-bar">
+    <div class="bookings">
+      <div class="check-in">
+        <div class="arrival">
+          <span>Arrival</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>  
+      </div> 
+      <div class="check-in">
+       <div class="arrival"> 
+         <span>Departure</span>
+         <i class="fas fa-chevron-down"></i>
+       </div>
+      </div>  
+      
+      <div class="check-in">
+        <input type="text" class="guests" placeholder="No. Of Guests"></input>    
+      </div>   
+    
+      <div class="check-in">
+        <input type="text" class="guests" placeholder="No. Of Rooms"></input>  
+        
+      </div>
+      <div class="check-available">
+        <button class="btn-avail" type="submit" >Check Availability</button>
+      </div>
+    </div>  
+  </div>
+</div> 
+</div>
+</header> 
+<section class="us-about">
+  <div class="about-container">
+    <div class="about-padding">
+      <div class="about-image">
+         <h2>About Us</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum tincidunt arcu. Donec ac convallis mi, ac interdum mauris. Morbi consequat nunc lacinia, dictum ligula in, malesuada urna. In sagittis euismod magna, eu consequat velit rhoncus quis. Aliquam nec arcu.
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique sapien libero, id condimentum ligula vestibulum sed. Ut ac ipsum non eros pretium consectetur. Nunc accumsan.</p>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique sapien libero, id condimentum ligula vestibulum sed. Ut ac ipsum non eros pretium consectetur. Nunc accumsan.</p>
+         <button class="btn-read">Read More</button>
+      </div>   
+     </div> 
+  </div>    
+</section>
+<section class="rooms">
+ <div class="container-rooms">
+   <h2>Our Rooms</h2>
+   <div class="flex-rooms">
+     {% for style,price,rating,show_on_homepage,room_available_count in mylist %}
+     {% if show_on_homepage %}
+     <div class="rooms-row">
+       <a href="">
+         <div class="module row-content" id="mySlides" style=" background-image:linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url('/static/home/img/bed-{{forloop.counter}}.jpg');background-size: cover;width: 400px;height: 300px;margin: 0 30px 0 0px; position: relative;float: left;margin-top: 50px;"> 
+           <div class="heading"><p>{{ style }}</p></div>
+           <div class="ratings">
+             <p>Ratings :
+               {% with ''|center:rating as range %}
+               {% for _ in range %}
+               <i class="fas fa-star"></i>
+               {% endfor %}
+               {% endwith %}
+             </p>
+           </div>
+           <div class="available">
+             <p>Available {{ room_available_count }}</p>
+           </div>  
+           <div class="rates">
+             <p id="rupee"><i class="fas fa-rupee-sign"></i>{{ price }}</p>
+           </div>  
+         </div>
+       </a> 
+      
+     </div>
+    {% endif %}
+     {% endfor %}
+   <button class="view-btn">View More </button>
+  </div>    
+</section>
+<section class="service-container">
+ <h3>Our Serivces</h3>
+ <div class="flex-services">
+   <div class="padding-services">
+     <div class="service">
+       <img src="{% static 'Home/img/s1.png' %}" height="80px" width="80px">
+       <p>Spa</p>
+     </div>
+   </div>  
+   <div class="padding-services">
+     <div class="service">
+       <img src="{% static 'Home/img/s2.png' %}" height="80px" width="80px">
+       <p>Gym</p>
+     </div>
+   </div>  
+   <div class="padding-services">
+     <div class="service">
+       <img src="{% static 'Home/img/s3.png' %}"height="80px" width="80px">
+       <p>24/7 Wifi</p>
+     </div>
+   </div>  
+   <div class="padding-services">
+     <div class="service">
+       <img src="{% static 'Home/img/s4.png' %}" height="80px" width="80px">
+       <p>Private Chef</p>
+     </div>
+   </div>  
+   <div class="padding-services">
+     <div class="service">
+       <img src="{% static 'Home/img/s5.png' %}" height="80px" width="80px">
+       <p>Pick & Drop</p>
+     </div>
+   </div>  
+ </div>  
+</section>
+{% if user.is_authenticated %}
+<section class="container-resto">
+ <div class="resto">
+   <div class="booking">
+     <div class="resto-book">
+       <p>Book Table</p>
+       <img src="{% static 'Home/img/heading-dark.png' %}" width="100px" height="20px">
+       <form action="#" method="POST">
+         {% csrf_token %}
+       <input placeholder="Name" type="Text" name="name"></input>
+       <input placeholder="Phone Number" type="tel" name="phonenumber"></input>
+       <input placeholder="Person" type="number" name="number_of_persons"></input>
+       <input placeholder="Date" type="date" name="date"></input>
+       <input placeholder="Time" type="time" name="time"></input>
+       <button class="resto-btn" type="submit" >Book</button>
+       </form>
+     </div>
+   </div> 
+   <div class="resto-heading">
+     <h2>Restaurant</h2>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum tincidunt arcu. Donec ac convallis mi, ac interdum mauris. Morbi consequat nunc lacinia, dictum ligula in, malesuada urna.</p>
+   </div>   
+ </div>  
+</section> 
+{% endif %}
+<section class="reviews">
+ <div class="reviews-container">
+   <div class="image-review">
+     <div class="review-image">
+       <img src="{% static 'Home/img/p-1.jpg '%}" height="160px" width="180px">
+     </div>
+     <div class="review-content">
+       <h3>Martha</h3>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+     </div>    
+   </div>  
+   <div class=image-review>
+     <div class="review-image">
+       <img src="{% static 'Home/img/p-2.jpg '%}" height="160px" width="180px">
+     </div>
+     <div class="review-content">
+       <h3>Jonas</h3>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+     </div>    
+   </div>  
+ </div>  
+</section>  
+<section class="gallery">
+ <div class="gallery-container">
+   <h2>Gallery</h2>
+   <div class="tab">
+     <button class="tablinks" onclick="openCity(event, 'ground')" id="defaultOpen">Hotel & Ground</button>
+     <button class="tablinks" onclick="openCity(event, 'suite')">Room/Suite</button>
+     <button class="tablinks" onclick="openCity(event, 'dining')">Dining</button>
+   </div>
+   <div class="gallery-content">
+     <div id="ground" class="tabcontent">
+       <img src="{% static 'Home/img/pool.jpg'%}" height="287px" width="325px">
+       <img src="{% static 'Home/img/1.jpg'%}" height="287px" width="325px">
+       <img src="{% static 'Home/img/2.jpg'%}"  height="287px" width="325px">
+       <img src="{% static 'Home/img/3.jpg'%}"  height="287px" width="325px">
+     </div>
+   </div>
+   <div  class="gallery-content">
+     <div id="suite" class="tabcontent">
+       <img src="{% static 'Home/img/bed-6.jpg'%}" height="287px" width="325px">
+       <img src="{% static 'Home/img/bed-5.jpg'%}" height="287px" width="325px">
+       <img src="{% static 'Home/img/bed-3.jpg'%}" height="287px" width="325px">
+       <img src="{% static 'Home/img/bed-4.jpg'%}" height="287px" width="325px">
+     </div>
+   </div>  
+   <div  class="gallery-content">
+     <div id="dining" class="tabcontent">
+       <img src="{% static 'Home/img/pool.jpg'%}" height="287px" width="325px">
+       <img src="{% static 'Home/img/1.jpg'%}"    height="287px" width="325px">
+       <img src="{% static 'Home/img/2.jpg'%}"    height="287px" width="325px">
+       <img src="{% static 'Home/img/3.jpg'%}"    height="287px" width="325px">
+     </div>
+   </div> 
+   <button class="view-btn">View More </button> 
+ </div>  
+</section>
+<section class="book-now">
+ <div class="book-heading">
+   <h2>Choose How To Book</h2>
+ </div> 
+ <div class="book-option">   
+   <div class="padding-book"> 
+     <a href="#">         
+      <div class="book-online">
+        <i class="far fa-calendar-alt"></i>
+        <h5>Check Availability <br> & Book Online </h5>
+      </div>
+     </a> 
+   </div>
+   <div class="padding-book">  
+     <a href="#"> 
+       <div class="book-online"">
+        <i class="fas fa-phone-alt"></i>
+        <h5>Call Us</h5>
+        <h5>+91 2222 456789</h5> 
+       </div>
+     </a>  
+   </div>
+   <div class="padding-book"> 
+     <a href="#"> 
+      <div class="book-online">
+        <i class="fas fa-headset"></i>
+        <h5>We Call You <br> Back </h5>
+      </div>
+     </a> 
+   </div>   
+ </div>   
+<a href="#"> <button class="book-btn">Book On Website It's Worth</button> </a> 
+</section>  
+<script>
+  function openCity(evt, cityName) {
+   var i, tabcontent, tablinks;
+   tabcontent = document.getElementsByClassName("tabcontent");
+   for (i = 0; i < tabcontent.length; i++) {
+     tabcontent[i].style.display = "none";
+   }
+   tablinks = document.getElementsByClassName("tablinks");
+   for (i = 0; i < tablinks.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" active", "");
+   }
+   document.getElementById(cityName).style.display = "block";
+   evt.currentTarget.className += " active";
+ }
+  document.getElementById("defaultOpen").click();
+</script>  
+{% endblock %}

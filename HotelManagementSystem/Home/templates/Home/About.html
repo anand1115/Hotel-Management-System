@@ -1,0 +1,142 @@
+{% extends 'Home/Base.html' %}
+{% load static %}
+{% block title %}
+About
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'Home/css/about.css' %}">
+{% endblock %}
+{% block main %}
+<div class="about-heading">
+    <h2>AboutUs</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod</p>
+    <button class="button-about">BOOK NOW</button>
+</div>       
+</header>  
+<section class="about-row">
+<div class="flex-about">
+    <div class="about-row-one">
+        <img class="about-image" src="{% static 'Home/img/about-1.jpg'%}" height="400px" width="100%">
+    </div>
+    <div class="about-us-text">
+        <h2>Our History</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+    </div> 
+</div> 
+<div class="about-row-two">
+    <div class="flex-about">
+        <div class="about-us-text">
+            <h2>Why People Choose Us ?</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        </div> 
+        <div class="about-row-one">
+            <img class="about-image" src="{% static 'Home/img/about-2.jpg'%}" height="420px" width="100%">
+        </div>
+    </div> 
+</div>   
+</section>  
+<section class="hotel-stats">
+<h2>OUR STATISTICS</h2>
+<div class="flex-image">
+    <div class="back-image-stats">
+        <div class="stat-image">
+            <i class="fas fa-users"></i>
+        </div>
+        <div class="stats">
+            <div class="counter" data-target="9000">9000</div>
+            <h3>Guest Stayed</h3>
+        </div>    
+    </div> 
+    <div class="back-image-stats">
+        <div class="stat-image">
+            <i class="fas fa-suitcase-rolling"></i>
+        </div>
+        <div class="stats">
+            <div class="counter" data-target="4000">4000</div>
+            <h3>Rooms Booked</h3>
+        </div>    
+    </div>
+</div>  
+<div class="flex-image image-row-2">
+    <div class="back-image-stats">
+        <div class="stat-image">
+            <i class="fas fa-utensils"></i>
+        </div>
+        <div class="stats meals">
+            <div class="counter" data-target="9000">2000</div>
+            <h3>Meals Served</h3>
+        </div>    
+    </div> 
+    <div class="back-image-stats ">
+        <div class="stat-image">
+            <i class="fas fa-user-check"></i>
+        </div>
+        <div class="stats">
+            <div class="counter" data-target="4000">1000</div>
+            <h3>Total Staff</h3>
+        </div>    
+    </div>
+</div>     
+</section>
+<section class="team-about">
+<h2>Our Team</h2>
+<div class="team-members">
+    <div class="member-card">
+       <div class="profile-photo">
+          <img src="{% static 'Home/img/p1.jpg' %}" height="150px" width="160px">
+       </div>
+       <h3>JESSICA ALBA</h3>  
+       <h6>Manager lotus Hotel</h6> 
+       <p>Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per.</p>
+       <div class="socials">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+       </div>    
+    </div>
+    <div class="member-card">
+        <div class="profile-photo">
+            <img src="{% static 'Home/img/p2.jpg' %}" height="150px" width="160px">
+        </div>
+        <h3>Walter White</h3>  
+        <h6>Manager lotus Hotel</h6> 
+        <p>Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per.</p>
+        <div class="socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>    
+    </div>
+    <div class="member-card">
+        <div class="profile-photo">
+            <img src="{% static 'Home/img/p3.jpg' %}" height="150px" width="160px">
+        </div>
+        <h3>John Snow</h3>  
+        <h6>Manager lotus Hotel</h6> 
+        <p>Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per.</p>
+        <div class="socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>    
+    </div>
+    <div class="member-card">
+        <div class="profile-photo">
+            <img src="{% static 'Home/img/p4.jpg' %}" height="150px" width="160px">
+        </div>
+        <h3>Marty Byrde</h3>  
+        <h6>Manager lotus Hotel</h6> 
+        <p>Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per.</p>
+        <div class="socials">
+         <a href="#"><i class="fab fa-twitter"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>    
+    </div>
+</div>    
+</section> 
+{% endblock %}

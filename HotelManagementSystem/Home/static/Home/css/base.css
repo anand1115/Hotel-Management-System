@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url("/static/Home/fonts/neutra-text-font/NeutraText-Bold.otf");
+}
+{
+    font-family: 'Cabin', sans-serif;
+}
+.navigation{
+    background-size: cover;
+    width: 100%;
+    background-attachment: fixed;
+}
+.back-image{
+    display: flex;
+    background-color: #fafafa;
+    padding: 20px 40px;
+    width: 100%;
+    position: fixed;
+    z-index:999;
+}
+.navbar-list{
+    width: 80%;
+    margin: auto;
+    padding-left: 3%;
+}
+.navbar-list ul{
+    list-style: none;
+    text-decoration: none; 
+}
+.navbar-list ul li {
+    color: #3a3434;
+    display: inline;
+    font-size: 18px;
+    padding: 5px 23px;
+   
+}
+#nav-search{
+    border-bottom: 1px solid #484848;
+    padding: 5px 0px;
+}
+.navbar-list ul li input{
+    border: none;
+    width: 15%;
+    background-color: #fafafa;
+    font-family: neutra;
+    font-weight: 300;
+}
+.navbar-list ul li input:focus{
+    outline: none;
+}
+#nav-contact{
+    padding-right: 20px;   
+}
+#nav-login{
+    padding-right: 45px;   
+}
+#nav-login a span{
+    font-family: neutra;
+}
+.navbar-list ul li a{
+    color: #3a3434;
+    text-decoration: none;
+    font-family: neutra;
+}
+.logo-image{
+   width: 20%;
+   text-align: center;
+}
+.content-header{
+    padding: 20px 80px;
+    
+}
+.content-header h1{
+    margin-top: 150px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3.2vw;
+    color:#fafafa;
+    font-family: neutra;
+    font-weight: bold;
+    margin-top: 270px;
+}
+.content-header p{
+    text-align: center;
+    font-size: 1.8vw;
+    font-style: italic;
+    color: #fafafa;
+    margin-top: 25px;
+    font-weight: 500;
+    font-family: 'Cabin', sans-serif;
+}   
+
+button :focus{
+    outline: none;
+}
+.footer{
+    text-align: center;
+    background-color: #1e2f31;
+    
+}
+.footer-bg{
+    padding-bottom: 65px;
+    border-bottom: 1px solid #fafafa;
+    
+}
+.footer-bg img{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.footer-bg h3{
+    font-size: 24px;
+    color: #fafafa;
+    margin-bottom: 15px;
+    font-family: neutra;
+}
+.footer-bg h5{
+    font-family: 'Cabin', sans-serif;
+    font-size: 17px;
+    color: #fafafa;
+    margin-bottom: 50px;
+}
+
+.footer-bg input{
+    border: none;
+    background-color: transparent;
+    width: 25%;
+}
+.footer-bg i{
+    padding-left: 1.5%;
+    color: #fafafa;
+    border-left: 1px solid #fafafa;
+}
+.email{
+    display: inline;
+    padding: 10px 15px ;
+    border: 1px solid #fafafa;
+}
+.email input:focus{
+    outline: none;
+    color: #fafafa;
+}
+.social-media{
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
+    
+}
+.copyright {
+    width: 30%;
+    color: #fafafa;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Cabin', sans-serif;
+}
+.copyright p{
+    font-family: 'Cabin', sans-serif;
+}
+.icons{
+    width: 35%;
+    color: #fafafa;
+    text-align: center;
+    font-size: 20px;
+    padding-left:6% ;
+}
+.icons i{
+    margin-right: 10px;
+}
+.payment{
+    width: 35%;
+    color: #fafafa;
+    text-align: center;
+    font-size: 22px;
+    padding-left:6% ;
+}
+.payment i{
+    margin-right: 10px;
+}
+
+

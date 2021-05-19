@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+   <html>
+      <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'Home/css/base.css' %}">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        {% block links %}
+
+        {% endblock %}
+      </head>    
+         <body>
+              <header class="navigation">
+                 <div class="back-image">  
+                    <div class="logo-image">
+                      <img src="{%static 'Home/img/logoimg.png ' %}" height="60px" width="200px">
+                    </div>  
+                    <div class="navbar-list">
+                      <ul>  
+                        <li><a href="{% url 'Home:home' %}">Home</a></li>
+                        <li><a href="{% url 'Home:about' %}">About-Us</a></li>
+                        <li><a href="#">Rooms</a></li>
+                        <li><a href="#">Dining</a></li>
+                        <li><a href="#">Gallary</a></li>
+                        <li id="nav-contact"><a href="{% url 'Home:contact' %}">Contact Us</a></li>
+                        <li id="nav-login">
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'Accounts:logout' %}">Logout</a>
+                           {% else %}
+                            <a href="{% url 'Accounts:login' %}">Login</a>
+                          {% endif %}
+                        </li>  
+                        <li id="nav-search">
+                            <input type="text" placeholder="Search"></input>
+                            <i class="fas fa-search"></i>
+                        </li>  
+                     </ul> 
+                    </div> 
+                  </div>   
+              {% block main %}
+
+
+              {% endblock %}
+            <footer class="footer">
+              <div class="footer-bg">
+                  <img src="{% static 'Home/img/footer.png'%}" height="50px" width="50px">
+                  <h3>NEWS & OFFERS</h3>
+                  <h5>Enjoy many benefits and receive our promotions and special offers directly</h5>
+                  <div class="email">
+                      <input type="text" placeholder="Your E-mail Address"></input>
+                      <i class="fas fa-paper-plane"></i>
+                  </div>
+              </div>
+              <div class="social-media">
+                  <div class="copyright">
+                      <p>© 2020 Lorem Ipsum Hotels</p>
+                  </div>
+                  <div class="icons">
+                      <i class="fab fa-instagram"></i>
+                      <i class="fab fa-facebook-square"></i>
+                      <i class="fab fa-twitter"></i>
+                  </div>
+                  <div class="payment">
+                      <i class="fab fa-cc-paypal"></i>
+                      <i class="fab fa-cc-mastercard"></i>
+                      <i class="fab fa-cc-visa"></i>
+                  </div>
+              </div>
+          </footer>
+          </body>   
+   </html>    
