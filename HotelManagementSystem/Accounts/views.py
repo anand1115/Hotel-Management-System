@@ -4,8 +4,10 @@ from django.views.generic import View,RedirectView
 from .forms import LoginForm,RegisterForm
 from django.contrib.auth import authenticate,login,logout
 from .models import User
+from django.utils.decorators import method_decorator
 
 class LoginView(View):
+
     def get(self,request):
         return render(request,'Accounts/login.html',{"form":LoginForm()})
     
